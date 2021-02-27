@@ -49,6 +49,10 @@ APP.use('/games', gamesController);
 ///////// Routes  ///////////
 /////////////////////////////
 
+APP.get('/', (req, res) => {
+    res.redirect('/games');
+})
+
 APP.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
 })
