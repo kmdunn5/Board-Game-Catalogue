@@ -27,7 +27,24 @@ GAMES.get('/new', (req, res) => {
 
 // Post //
 GAMES.post('/', (req, res) => {
-    res.send('created')
+    if (req.body.played === 'on') {
+        req.body.played = true;
+    } else {
+        req.body.played = false;
+    }
+    if (req.body.wantToPlay === 'on') {
+        req.body.wantToPlay = true;
+    } else {
+        req.body.wantToPlay = false;
+    }
+    if (req.body.owned === 'on') {
+        req.body.owned = true
+    } else {
+        req.body.owned = false
+    }
+    Game.create(req.body, (err, game) => {
+        res.redirect('/games')
+    })
 })
 
 // Show //
@@ -51,7 +68,9 @@ GAMES.put('/:id', (req, res) => {
 
 // Delete //
 GAMES.delete('/:id', (req, res) => {
-    res.send('deleted');
+    Game.findByIdAndDelete(req.params.id, (err, game) => {
+        res.redirect('/games');
+    })
 });
 
 
