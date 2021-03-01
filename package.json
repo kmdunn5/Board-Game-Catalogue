@@ -1,6 +1,9 @@
 {
   "name": "board-game-catalogue",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.6.0"
+  },
   "description": "Catalogue for board game lists",
   "main": "server.js",
   "scripts": {
