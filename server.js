@@ -13,8 +13,9 @@ const bcrypt = require('bcrypt');
 //////// APP Consts  ////////
 /////////////////////////////
 const APP = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DBNAME = 'games';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ DBNAME;
 
 /////////////////////////////
 /////// Controllers  ////////
@@ -24,7 +25,7 @@ const gamesController = require('./controllers/boardgames.js');
 /////////////////////////////
 ///// Database Config ///////
 /////////////////////////////
-mongoose.connect('mongodb://localhost:27017/' + DBNAME, {useNewUrlParser: true});
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
