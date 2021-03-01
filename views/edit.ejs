@@ -11,5 +11,41 @@
         <%- include ('./partials/nav.ejs') %>
     </nav>
     <h1>Edit Page</h1>
+    <form action="/games" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" value="<%= game.name %>">
+        <label for="year">Year: </label>
+        <input type="text" name="year" id="year" value="<%= game.year %>">
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" value="<%= game.description %>">
+        <label for="designer">Designer: </label>
+        <input type="text" name="designer" id="designer" value="<%= game.designer %>">
+        <label for="publisher">Publisher: </label>
+        <input type="text" name="publisher" id="publisher" value="<%= game.publisher %>">
+        <label for="playerCount">Players: </label>
+        <input type="text" name="playerCount" id="playerCount" value="<%= game.playerCount %>">
+        <label for="rating">Rating: </label>
+        <input type="text" name="rating" id="rating" value="<%= game.rating %>">
+        <label for="complexity">Complexity: </label>
+        <input type="text" name="complexity" id="complexity" value="<%= game.complexity %>">
+        <label for="played">Have You Played It?</label>
+        <input type="checkbox" name="played" id="played" 
+        <% if (game.played === true) { %>
+            checked
+        <% } %>>
+        <label for="wantToPlay">Do You Want To Play It?</label>
+        <input type="checkbox" name="wantToPlay" id="wantToPlay"
+        <% if (game.wantToPlay === true) { %>
+            checked
+        <% } %>>
+        <label for="owned">Do You Own It?</label>
+        <input type="checkbox" name="owned" id="owned"
+        <% if (game.owned === true) { %>
+            checked
+        <% } %>>
+        <label for="image">Image URL</label>
+        <input type="text" name="image" id="image">
+        <input type="submit" name="submit" id="submit" value="Create">
+    </form>
 </body>
 </html>
