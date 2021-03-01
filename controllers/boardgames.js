@@ -58,7 +58,9 @@ GAMES.get('/:id', (req, res) => {
 
 // Edit //
 GAMES.get('/:id/edit', (req, res) => {
-    res.render('edit.ejs');
+    res.render('edit.ejs', {
+        game: game
+    });
 });
 
 // Update //

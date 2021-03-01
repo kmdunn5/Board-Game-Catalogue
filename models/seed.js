@@ -10,7 +10,8 @@ const seededGames = [
         complexity: 2.84,
         played: true,
         wantToPlay: true,
-        owned: true
+        owned: true,
+        image: 'https://cf.geekdo-images.com/-Qer2BBPG7qGGDu6KcVDIw__itemrep/img/Wxe36yaTzpiIVhEefHOYzFv7Ucc=/fit-in/246x300/filters:strip_icc()/pic2452831.png'
     },
     {
         name: 'Frosthaven',
@@ -21,7 +22,8 @@ const seededGames = [
         playerCount: '1-4',
         played: false,
         wantToPlay: true,
-        owned: true
+        owned: true,
+        image: 'https://cf.geekdo-images.com/cwUgf-f-qwri8UHBUnifuQ__itemrep/img/jdzPjZRC5J0C_NL7mhr-4VPdm0I=/fit-in/246x300/filters:strip_icc()/pic5092291.png'
     },
     {
         name: 'Twilight Imperium',
@@ -34,7 +36,8 @@ const seededGames = [
         complexity: 4.22,
         played: true,
         wantToPlay: true,
-        owned: true
+        owned: true,
+        image: 'https://cf.geekdo-images.com/_Ppn5lssO5OaildSE-FgFA__itemrep/img/rJfEVG0xStfVWbevNWfHBo4ZVrQ=/fit-in/246x300/filters:strip_icc()/pic3727516.jpg'
     },{
         name: 'Through the Ages: A New Story of Civilization',
         year: 2015,
@@ -46,7 +49,8 @@ const seededGames = [
         complexity: 4.41,
         played: false,
         wantToPlay: false,
-        owned: false
+        owned: false,
+        image: 'https://cf.geekdo-images.com/fVwPntkJKgaEo0rIC0RwpA__itemrep/img/TF5TpehpgE7XvNSRzSSWjnYCbLc=/fit-in/246x300/filters:strip_icc()/pic2663291.jpg'
     }, {
         name: 'Hanabi',
         year: 2010,
@@ -58,7 +62,8 @@ const seededGames = [
         complexity: '1.70',
         played: true,
         wantToPlay: true,
-        owned: true
+        owned: true,
+        image: 'https://cf.geekdo-images.com/JDVksMwfcqoem1k_xtZrOA__itemrep/img/-8TE91boynDg5reWQGyIkc7Wx6I=/fit-in/246x300/filters:strip_icc()/pic2007286.jpg'
     }
 ]
 
