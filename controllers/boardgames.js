@@ -58,14 +58,33 @@ GAMES.get('/:id', (req, res) => {
 
 // Edit //
 GAMES.get('/:id/edit', (req, res) => {
-    res.render('edit.ejs', {
-        game: game
+    Game.findById(req.params.id, (err, game) => {
+        res.render('edit.ejs', {
+            game: game
+        });
     });
 });
 
 // Update //
 GAMES.put('/:id', (req, res) => {
-    res.send('update');
+    if (req.body.played === 'on') {
+        req.body.played = true;
+    } else {
+        req.body.played = false;
+    }
+    if (req.body.wantToPlay === 'on') {
+        req.body.wantToPlay = true;
+    } else {
+        req.body.wantToPlay = false;
+    }
+    if (req.body.owned === 'on') {
+        req.body.owned = true
+    } else {
+        req.body.owned = false
+    }
+    Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, game) => {
+        res.redirect(`/games/${req.params.id}`)
+    })
 });
 
 // Delete //

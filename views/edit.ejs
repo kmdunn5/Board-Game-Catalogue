@@ -11,7 +11,7 @@
         <%- include ('./partials/nav.ejs') %>
     </nav>
     <h1>Edit Page</h1>
-    <form action="/games" method="POST">
+    <form action="/games/<%= game.id %>?_method=PUT" method="POST">
         <label for="name">Name: </label>
         <input type="text" name="name" id="name" value="<%= game.name %>">
         <label for="year">Year: </label>
@@ -44,8 +44,8 @@
             checked
         <% } %>>
         <label for="image">Image URL</label>
-        <input type="text" name="image" id="image">
-        <input type="submit" name="submit" id="submit" value="Create">
+        <input type="text" name="image" id="image" value="<%= game.image %>">
+        <input type="submit" name="submit" id="submit" value="Update">
     </form>
 </body>
 </html>
