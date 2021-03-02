@@ -4,7 +4,9 @@ const USER = express.Router();
 const User = require('../models/user.js');
 
 USER.get('/new', (req, res) => {
-    res.render('users/new.ejs');
+    res.render('users/new.ejs', {
+        currentUser: req.session.currentUser
+    });
 })
 
 USER.post('/', (req, res) => {

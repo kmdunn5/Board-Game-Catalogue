@@ -21,6 +21,7 @@ const MONGODB_URI = process.env.MONGODB_URI
 /////////////////////////////
 const gamesController = require('./controllers/boardgames.js');
 const userController = require('./controllers/users.js');
+const sessionController = require('./controllers/sessions.js');
 
 /////////////////////////////
 ///// Database Config ///////
@@ -36,7 +37,7 @@ mongoose.connection.once('open', () => {
 APP.use(express.urlencoded({extended: true}));
 APP.use(methodOverride('_method'));
 APP.use(session({
-    secret:process.env.SECRET,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }))
@@ -45,7 +46,8 @@ APP.use(session({
 ///// Controller Use  ///////
 /////////////////////////////
 APP.use('/games', gamesController);
-APP.use('/users', userController)
+APP.use('/users', userController);
+APP.use('/sessions', sessionController);
 
 /////////////////////////////
 ///////// Routes  ///////////
