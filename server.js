@@ -6,16 +6,15 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
-// require('dotenv').config();
+require('dotenv').config();
 
 
 /////////////////////////////
 //////// APP Consts  ////////
 /////////////////////////////
 const APP = express();
-const PORT = process.env.PORT || 3000;
-const DBNAME = 'games';
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ DBNAME;
+const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI
 
 /////////////////////////////
 /////// Controllers  ////////
@@ -35,11 +34,11 @@ mongoose.connection.once('open', () => {
 /////////////////////////////
 APP.use(express.urlencoded({extended: true}));
 APP.use(methodOverride('_method'));
-// APP.use(session({
-//     secret:process.env.secret,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+APP.use(session({
+    secret:process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 /////////////////////////////
 ///// Controller Use  ///////
