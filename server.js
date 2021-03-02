@@ -45,7 +45,7 @@ APP.use(session({
 ///// Controller Use  ///////
 /////////////////////////////
 APP.use('/games', gamesController);
-APP.use('/user', userController)
+APP.use('/users', userController)
 
 /////////////////////////////
 ///////// Routes  ///////////
