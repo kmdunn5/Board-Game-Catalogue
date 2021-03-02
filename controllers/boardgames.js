@@ -15,7 +15,7 @@ GAMES.get('/seed', (req, res) => {
 // Index //
 GAMES.get('/', (req, res) => {
     Game.find({}, (err, games) => {
-        res.render('index.ejs', {
+        res.render('games/index.ejs', {
             games: games
         });
     });
@@ -23,7 +23,7 @@ GAMES.get('/', (req, res) => {
 
 // New //
 GAMES.get('/new', (req, res) => {
-    res.render('new.ejs');
+    res.render('games/new.ejs');
 });
 
 // Post //
@@ -51,7 +51,7 @@ GAMES.post('/', (req, res) => {
 // Show //
 GAMES.get('/:id', (req, res) => {
     Game.findById(req.params.id, (err, game) => {
-        res.render('show.ejs', {
+        res.render('games/show.ejs', {
             game: game
         })
     })
@@ -60,7 +60,7 @@ GAMES.get('/:id', (req, res) => {
 // Edit //
 GAMES.get('/:id/edit', (req, res) => {
     Game.findById(req.params.id, (err, game) => {
-        res.render('edit.ejs', {
+        res.render('games/edit.ejs', {
             game: game
         });
     });

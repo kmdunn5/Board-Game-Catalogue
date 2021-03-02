@@ -20,6 +20,7 @@ const MONGODB_URI = process.env.MONGODB_URI
 /////// Controllers  ////////
 /////////////////////////////
 const gamesController = require('./controllers/boardgames.js');
+const userController = require('./controllers/users.js');
 
 /////////////////////////////
 ///// Database Config ///////
@@ -44,6 +45,7 @@ APP.use(session({
 ///// Controller Use  ///////
 /////////////////////////////
 APP.use('/games', gamesController);
+APP.use('/user', userController)
 
 /////////////////////////////
 ///////// Routes  ///////////
