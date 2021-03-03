@@ -16,14 +16,15 @@ GAMES.get('/seed', (req, res) => {
 GAMES.get('/', (req, res) => {
     Game.find({}, (err, games) => {
         res.render('games/index.ejs', {
-            games: games
+            games: games,
+            currentUser: req.session.currentUser
         });
     });
 });
 
 // New //
 GAMES.get('/new', (req, res) => {
-    res.render('games/new.ejs');
+    res.render('games/new.ejs', {currentUser: req.session.currentUser});
 });
 
 // Post //
@@ -52,7 +53,8 @@ GAMES.post('/', (req, res) => {
 GAMES.get('/:id', (req, res) => {
     Game.findById(req.params.id, (err, game) => {
         res.render('games/show.ejs', {
-            game: game
+            game: game,
+            currentUser: req.session.currentUser
         })
     })
 });
@@ -61,7 +63,8 @@ GAMES.get('/:id', (req, res) => {
 GAMES.get('/:id/edit', (req, res) => {
     Game.findById(req.params.id, (err, game) => {
         res.render('games/edit.ejs', {
-            game: game
+            game: game,
+            currentUser: req.session.currentUser
         });
     });
 });

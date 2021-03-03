@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const USER = express.Router();
 const User = require('../models/user.js');
+const UserGame = require('../models/userGames.js');
 
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
@@ -25,12 +26,14 @@ USER.post('/', (req, res) => {
     })
 })
 
-USER.get('/:id', isAuthenticated, (req, res) => {
-    UserGame.find({id: req.session.currentUser.id}, (err, userGames))
-    console.log
-    res.render('users/show.ejs', {
-        user: req.session.currentUser.id,
-        userGames: userGames
+USER.get('/:id', (req, res) => {
+    console.log(req.session.currentUser)
+    UserGame.find({ id: req.session.currentUser._id }, (err, userGames) => {
+        console.log(userGames)
+        res.render('users/show.ejs', {
+            currentUser: req.session.currentUser,
+            userGames: userGames
+        })
     })
 })
 

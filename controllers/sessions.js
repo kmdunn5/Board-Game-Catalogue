@@ -3,6 +3,15 @@ const express = require('express');
 const User = require('../models/user');
 const SESSION = express.Router();
 
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+      res.redirect('/sessions/new')
+    }
+  }
+
+
 SESSION.get('/new', (req, res) => {
     res.render('sessions/new.ejs', {
         currentUser: req.session.currentUser

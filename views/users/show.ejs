@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= user.name %>></title>
+    <title><%= currentUser.name %>></title>
 </head>
 <body>
-    <h1>Welcome <%= user.name %>!</h1>
+    <h1>Welcome <%= currentUser.username %>!</h1>
     <h3>
         <% if (!userGames[0]) { %>
             Sorry, you have not added a game to your lists yet. Go <a href="/games">here</a> to find and add games!
