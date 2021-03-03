@@ -54,6 +54,7 @@ APP.use('/sessions', sessionController);
 /////////////////////////////
 
 APP.get('/', (req, res) => {
+    console.log(req.session.currentUser)
     res.redirect('/games');
 })
 
