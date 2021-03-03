@@ -12,6 +12,7 @@
     </nav>
     <h1><%= game.name %></h1>
     <img src="<%= game.image %>" alt="<%= game.name %>">
+    <%- include ('../partials/userButtons.ejs', {currentGame: game}) %>
     <h4><%= game.year %></h4>
     <h3>Average Rating: <%= game.rating %></h3>
     <h3>Complexity Rating: <%= game.complexity %></h3>

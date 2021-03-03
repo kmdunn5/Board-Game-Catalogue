@@ -1,1 +1,6 @@
-<% if ()
+<% if (currentUser) { %>
+    <form action="/users/<%= currentUser._id %>?_method=PUT" method="POST">
+        <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
+        <input type="submit" value="Add To Played List">
+    </form>
+<% } %>
