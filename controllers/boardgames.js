@@ -56,7 +56,6 @@ GAMES.get('/:id', (req, res) => {
             game: game,
             currentUser: req.session.currentUser
         })
-        console.log(req.session)
     })
 });
 

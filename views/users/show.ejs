@@ -9,7 +9,7 @@
 <body>
     <h1>Welcome <%= currentUser.username %>!</h1>
     <h3>
-        <% if (!userGames[0]) { %>
+        <% if (userGames.length === 0) { %>
             Sorry, you have not added a game to your lists yet. Go <a href="/games">here</a> to find and add games!
         <% } else { %>
             Here's your games!

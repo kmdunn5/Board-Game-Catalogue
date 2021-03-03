@@ -26,24 +26,28 @@ USER.post('/', (req, res) => {
     })
 })
 
-USER.get('/:id', (req, res) => {
+USER.get('/:id', isAuthenticated, (req, res) => {
     User.findById(req.params.id, (err, user) => {
-        UserGame.find({ id: req.session.currentUser._id }, (err, userGames) => {
+        console.log(user.id)
+        UserGame.find({userId: user.id}, (err, foundGames) => {
+            console.log(foundGames)        
             res.render('users/show.ejs', {
                 user: user,
                 currentUser: req.session.currentUser,
-                userGames: userGames
+                userGames: foundGames
             })
         })
+
     })
 })
 
 USER.put('/:id', (req, res) => {
+    // let userGameRelationship = UserGame.find({ userId: req.session.currentUser._id, gameId: req.body.gameId});
+    // console.log(userGameRelationship);
+    // res.render(userGameRelationship);
     UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, played: true}, (err, createdGame) => {
-        console.log(createdGame)
-        res.redirect('/users/' + req.session.currentUser._id)
+        res.redirect('/users/' + req.session.currentUser._id);
     })
-    // let userGameRelationship = UserGame.find({ userId: req.session.currentUser._id, gameId: req.params.id})
 })
 
 module.exports = USER
