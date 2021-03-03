@@ -28,11 +28,14 @@ USER.post('/', (req, res) => {
 
 USER.get('/:id', (req, res) => {
     console.log(req.session.currentUser)
-    UserGame.find({ id: req.session.currentUser._id }, (err, userGames) => {
-        console.log(userGames)
-        res.render('users/show.ejs', {
-            currentUser: req.session.currentUser,
-            userGames: userGames
+    User.findById(req.params.id, (err, user) => {
+        UserGame.find({ id: req.session.currentUser._id }, (err, userGames) => {
+            console.log(userGames)
+            res.render('users/show.ejs', {
+                user: user,
+                currentUser: req.session.currentUser,
+                userGames: userGames
+            })
         })
     })
 })

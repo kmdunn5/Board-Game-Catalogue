@@ -15,6 +15,7 @@ GAMES.get('/seed', (req, res) => {
 // Index //
 GAMES.get('/', (req, res) => {
     Game.find({}, (err, games) => {
+        console.log(req.session.currentUser)
         res.render('games/index.ejs', {
             games: games,
             currentUser: req.session.currentUser

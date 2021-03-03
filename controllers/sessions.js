@@ -30,7 +30,7 @@ SESSION.post('/', (req, res) => {
                 req.session.currentUser = foundUser;
                 res.redirect('/')
             } else {
-                res.send('Sorry user and password don\'t match. Please <a href="/session/new">try again</a>')
+                res.send('Sorry user and password don\'t match. Please <a href="/sessions/new">try again</a>')
             }
         }
     })

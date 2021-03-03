@@ -2,7 +2,7 @@
     <li><a href="/games">Games List</a></li>
     <li><a href="/games/new">Add a Game</a></li>
     <% if (currentUser) { %>
-        <li><a href="/users/<%= currentUser.id %>">Home</a></li>
+        <li><a href="/users/<%= currentUser._id %>">Home</a></li>
         <li>
             <form action="/sessions?_method=DELETE" method="POST">
                 <input type="submit" name="logOut" id="logOut" value="Log Out">
