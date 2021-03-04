@@ -15,5 +15,8 @@ When I delete a game, only the game is gone. This means that the userGame relati
   
 I would like the ability to add tags to games. This would allow the users to search for games that fit certain criterias, letting them add even more games to their lists!  
   
-A bit bonus to this site would be the ability to have an API run and generate games for this site after pulling them off of boardgamegeek.com.
+A bit bonus to this site would be the ability to have an API run and generate games for this site after pulling them off of boardgamegeek.com. This would allow the list of games to be populated with many games for users to find, without having them add games themselves.  
+  
+### Unsolved Problems
+I have a large nested find route in my user show page. This is so that I can make different lists of different things. However, this feels like a complicated way to do this. I would like to come back later and figure out how best to find things. I feel that the problem here stems from not fully understanding how the relationships are supposed to function, and how to best utilize the ID numbers to reference other objects.
 
