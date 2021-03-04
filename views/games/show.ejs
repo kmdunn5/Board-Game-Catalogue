@@ -7,30 +7,42 @@
 <body>
     <%- include ('../partials/nav.ejs') %>
     <h1><%= game.name %></h1>
+    <h5><%= game.year %></h5><br> 
     <img src="<%= game.image %>" alt="<%= game.name %>">
-    <%- include ('../partials/userButtons.ejs', {currentGame: game}) %>
-    <h5><%= game.year %></h5>
-    <h4>Average Rating: 
-        <% if (game.complexity) { %>
-            <%= game.complexity %></h4>
-        <% } else { %>
-            N/A</h4>
-        <% } %>
-    </h4>
-    <h4>Complexity Rating: 
-        <% if (game.complexity) { %>
-            <%= game.complexity %></h4>
-        <% } else { %>
-            N/A</h4>
-        <% } %>
-    <h5>Player Count: <%= game.playerCount %></h5>
-    <p id="description"><%= game.description %></p>
+    <%- include ('../partials/userButtons.ejs', {currentGame: game}) %> <br><br>
+    <p class="lead" id="description"><%= game.description %></p><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Average Rating: 
+                    <% if (game.complexity) { %>
+                        <%= game.complexity %></h4>
+                    <% } else { %>
+                        N/A</h4>
+                    <% } %>
+            </div>
+            <div class="col">
+                <h4>Complexity Rating: 
+                    <% if (game.complexity) { %>
+                        <%= game.complexity %></h4>
+                    <% } else { %>
+                        N/A</h4>
+                    <% } %>
+            </div>
+            <div class="col">
+                <h5>Player Count: <%= game.playerCount %></h5>
+            </div>
+        </div> 
+    </div><br>
     <p id="creater"><small>Made By <%= game.designer %> & <%= game.publisher %></small></p>
     <% if (currentUser) { %>
-        <a href="/games/<%= game.id %>/edit"><button>Edit</button></a>
-        <form action="/games/<%= game.id %>?_method=DELETE" method="POST">
-            <input type="submit" name="delete" id="delete" value="DELETE">
-        </form>
+        <div class="container small">
+            <a href="/games/<%= game.id %>/edit"><button class="w-100 btn btn-outline-light my-1">Edit</button></a>
+            <form action="/games/<%= game.id %>?_method=DELETE" method="POST">
+                <input class="w-100 btn btn-outline-light my-1" type="submit" name="delete" id="delete" value="DELETE">
+            </form>
+        </div>
     <% } %>
     
 </body>

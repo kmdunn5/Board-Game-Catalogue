@@ -1,9 +1,10 @@
 body {
+    background-color: rgb(231, 226, 226);
     text-align: center;
 }
 
 nav {
-    background-color: palegoldenrod;
+    background-color: aquamarine;
 }
 
 .col-sm {
@@ -36,4 +37,8 @@ img {
 
 .user-btns {
     width: 400px;
+}
+
+.small {
+    width: 30%;
 }

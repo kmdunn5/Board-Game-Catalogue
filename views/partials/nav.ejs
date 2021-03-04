@@ -6,7 +6,7 @@
                 <% if (currentUser) { %>
                     <li class="nav-item"><a class="nav-link" href="/games/new">Add a Game</a></li>
                     <li class="nav-item"><a class="nav-link" href="/users/<%= currentUser._id %>">Home</a></li>
-                    <li class="nav-item">
+                    <li class="nav-item order-first">
                         <form action="/sessions?_method=DELETE" method="POST">
                             <input class="form-control nav-form w-100 btn btn-danger" type="submit" name="logOut" id="logOut" value="Log Out">
                         </form>
