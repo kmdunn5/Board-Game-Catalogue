@@ -4,29 +4,49 @@
     <%- include ('../partials/head.ejs') %>
     <title>Add A Game</title>
 </head>
-<body class="text-center">
+<body>
     <%- include ('../partials/nav.ejs') %>
-    <h1>Create Page</h1>
-    <form action="/games" method="POST">
-        <label for="name">Name: </label>
-        <input type="text" name="name" id="name">
-        <label for="year">Year: </label>
-        <input type="text" name="year" id="year">
-        <label for="description">Description: </label>
-        <input type="text" name="description" id="description">
-        <label for="designer">Designer: </label>
-        <input type="text" name="designer" id="designer">
-        <label for="publisher">Publisher: </label>
-        <input type="text" name="publisher" id="publisher">
-        <label for="playerCount">Players: </label>
-        <input type="text" name="" id="">
-        <label for="rating">Rating: </label>
-        <input type="text" name="rating" id="rating">
-        <label for="complexity">Complexity: </label>
-        <input type="text" name="complexity" id="complexity">
-        <label for="image">Image URL</label>
-        <input type="url" name="image" id="image">
-        <input type="submit" name="submit" id="submit" value="Create">
-    </form>
+    <main class="form-create">
+        <h1>Add a New Game!</h1>
+        <form action="/games" method="POST">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="name" id="name" placeholder="Name:">
+                <label class="form-label" for="name">Name: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="year" id="year" placeholder="Year:">
+                <label class="form-label" for="year">Year: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="description" id="description" placeholder="Description:">
+                <label class="form-label" for="description">Description: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="designer" id="designer" placeholder="Designer:">
+                <label class="form-label" for="designer">Designer: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="publisher" id="publisher" placeholder="Publisher:">
+                <label class="form-label" for="publisher">Publisher: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="playerCount" id="playerCount" placeholder="Players:">
+                <label class="form-label" for="playerCount">Players: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="rating" id="rating" placeholder="Rating:">
+                <label class="form-label" for="rating">Rating: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="complexity" id="complexity" placeholder="Complexity:">
+                <label class="form-label" for="complexity">Complexity: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="image" id="image" placeholder="Image URL:">
+                <label class="form-label" for="image">Image URL: </label>   
+            </div>
+            <input class="w-100 btn btn-primary my-1" type="submit" name="submit" id="submit" value="Create">
+        </form>
+    </main>
 </body>
 </html>

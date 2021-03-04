@@ -6,27 +6,48 @@
 </head>
 <body>
     <%- include ('../partials/nav.ejs') %>
-    <h1>Edit Page</h1>
-    <form action="/games/<%= game.id %>?_method=PUT" method="POST">
-        <label for="name">Name: </label>
-        <input type="text" name="name" id="name" value="<%= game.name %>">
-        <label for="year">Year: </label>
-        <input type="text" name="year" id="year" value="<%= game.year %>">
-        <label for="description">Description: </label>
-        <input type="text" name="description" id="description" value="<%= game.description %>">
-        <label for="designer">Designer: </label>
-        <input type="text" name="designer" id="designer" value="<%= game.designer %>">
-        <label for="publisher">Publisher: </label>
-        <input type="text" name="publisher" id="publisher" value="<%= game.publisher %>">
-        <label for="playerCount">Players: </label>
-        <input type="text" name="playerCount" id="playerCount" value="<%= game.playerCount %>">
-        <label for="rating">Rating: </label>
-        <input type="text" name="rating" id="rating" value="<%= game.rating %>">
-        <label for="complexity">Complexity: </label>
-        <input type="text" name="complexity" id="complexity" value="<%= game.complexity %>">
-        <label for="image">Image URL</label>
-        <input type="url" name="image" id="image" value="<%= game.image %>">
-        <input type="submit" name="submit" id="submit" value="Update">
-    </form>
+    <main class="form-create">  
+        <h1>Edit Page</h1>
+        <form action="/games" method="POST">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="name" id="name" placeholder="Name:" value="<%= game.name %>">
+                <label class="form-label" for="name">Name: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="year" id="year" placeholder="Year:" value="<%= game.year %>">
+                <label class="form-label" for="year">Year: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="description" id="description" placeholder="Description:" value="<%= game.description %>">
+                <label class="form-label" for="description">Description: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="designer" id="designer" placeholder="Designer:" value="<%= game.designer %>">
+                <label class="form-label" for="designer">Designer: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="publisher" id="publisher" placeholder="Publisher:" value="<%= game.publisher %>">
+                <label class="form-label" for="publisher">Publisher: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="playerCount" id="playerCount" placeholder="Players:" value="<%= game.playerCount %>">
+                <label class="form-label" for="playerCount">Players: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="rating" id="rating" placeholder="Rating:" value="<%= game.rating %>">
+                <label class="form-label" for="rating">Rating: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="complexity" id="complexity" placeholder="Complexity:" value="<%= game.complexity %>">
+                <label class="form-label" for="complexity">Complexity: </label>   
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" name="image" id="image" placeholder="Image URL:" value="<%= game.image %>">
+                <label class="form-label" for="image">Image URL: </label>   
+            </div>
+            <input class="w-100 btn btn-primary my-1" type="submit" name="submit" id="submit" value="Create">
+        </form>
+    </main>
 </body>
 </html>
+

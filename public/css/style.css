@@ -20,6 +20,13 @@ nav {
     margin: auto;
 }
 
+.form-create {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+}
+
 li {
     text-align: justify;
 }
@@ -28,7 +35,6 @@ li {
     margin-right: 10px;
     display: block;
     background-clip: border-box;
-
 }
 
 img {
@@ -41,4 +47,8 @@ img {
 
 .small {
     width: 30%;
+}
+
+.papayawhip {
+    background-color: papayawhip;
 }
