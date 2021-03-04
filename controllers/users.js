@@ -63,5 +63,32 @@ USER.put('/:id/played', (req, res) => {
     })
 })
 
+USER.put('/:id/owned', (req, res) => {
+    UserGame.findOne({ userId: req.session.currentUser._id, gameId: req.body.gameId}, (err, foundRelationship) => {
+        if (foundRelationship) {
+            UserGame.findByIdAndUpdate(foundRelationship.id, {$set: {owned: true}}, {new: true}, (err, ownedGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        } else {
+            UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, owned: true}, (err, createdGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        }
+    })
+})
+
+USER.put('/:id/wantToPlay', (req, res) => {
+    UserGame.findOne({ userId: req.session.currentUser._id, gameId: req.body.gameId}, (err, foundRelationship) => {
+        if (foundRelationship) {
+            UserGame.findByIdAndUpdate(foundRelationship.id, {$set: {wantToPlay: true}}, {new: true}, (err, wantToPlayGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        } else {
+            UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, wantToPlay: true}, (err, createdGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        }
+    })
+})
 
 module.exports = USER

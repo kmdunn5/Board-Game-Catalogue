@@ -5,10 +5,10 @@
     </form>
     <form action="/users/<%= currentUser._id %>/owned?_method=PUT" method="POST">
         <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
-        <input type="submit" value="Add To Played List">
+        <input type="submit" value="Add To Owned List">
     </form>
     <form action="/users/<%= currentUser._id %>/wantToPlay?_method=PUT" method="POST">
         <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
-        <input type="submit" value="Add To Played List">
+        <input type="submit" value="Add To Wish List">
     </form>
 <% } %>
