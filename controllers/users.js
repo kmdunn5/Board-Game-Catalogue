@@ -23,14 +23,13 @@ USER.get('/new', (req, res) => {
 USER.post('/', (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     User.create(req.body, (err, user) => {
-        res.redirect('/');
+        res.redirect('/sessions/new');
     })
 })
 
 USER.get('/:id', isAuthenticated, (req, res) => {
     try {
         User.findById(req.params.id, (err, user) => {
-
             UserGame.find({userId: user.id, played: true}, (err, playRelationship) => {
                 let playedArr = playRelationship.map(i => i.gameId);
                 Game.find({ _id: {$in: playedArr}}, (err, playedGames) => {
