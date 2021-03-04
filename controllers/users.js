@@ -3,6 +3,7 @@ const express = require('express');
 const USER = express.Router();
 const User = require('../models/user.js');
 const UserGame = require('../models/userGames.js');
+const Game = require('../models/boardgame.js')
 
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
@@ -28,13 +29,22 @@ USER.post('/', (req, res) => {
 
 USER.get('/:id', isAuthenticated, (req, res) => {
     User.findById(req.params.id, (err, user) => {
-        console.log(user.id)
-        UserGame.find({userId: user.id}, (err, foundGames) => {
-            console.log(foundGames)        
+
+        UserGame.find({userId: user.id}, (err, relationships) => {
+            let relatedGames = [];
+            for (let i in relationships) {
+                console.log('relationship:' + relationships[i].gameId)
+                Game.find( { _id: relationships[i].gameId}, (err, foundGame) => {
+                    console.log(foundGame)
+                    console.log('next')
+                    relatedGames.push(foundGame);
+                })
+            }
+            console.log('end')
             res.render('users/show.ejs', {
                 user: user,
                 currentUser: req.session.currentUser,
-                userGames: foundGames
+                relationships: relationships
             })
         })
 
@@ -42,9 +52,6 @@ USER.get('/:id', isAuthenticated, (req, res) => {
 })
 
 USER.put('/:id', (req, res) => {
-    // let userGameRelationship = UserGame.find({ userId: req.session.currentUser._id, gameId: req.body.gameId});
-    // console.log(userGameRelationship);
-    // res.render(userGameRelationship);
     UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, played: true}, (err, createdGame) => {
         res.redirect('/users/' + req.session.currentUser._id);
     })
