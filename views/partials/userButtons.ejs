@@ -1,14 +1,24 @@
 <% if (currentUser) { %>
-    <form action="/users/<%= currentUser._id %>/played?_method=PUT" method="POST">
-        <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
-        <input type="submit" value="Add To Played List">
-    </form>
-    <form action="/users/<%= currentUser._id %>/owned?_method=PUT" method="POST">
-        <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
-        <input type="submit" value="Add To Owned List">
-    </form>
-    <form action="/users/<%= currentUser._id %>/wantToPlay?_method=PUT" method="POST">
-        <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
-        <input type="submit" value="Add To Wish List">
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="/users/<%= currentUser._id %>/played?_method=PUT" method="POST">
+                    <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
+                    <input class="w-100 btn btn-lg btn-outline-success my-1" type="submit" value="Add To Played List">
+                </form>
+            </div>
+            <div class="col">
+                <form action="/users/<%= currentUser._id %>/owned?_method=PUT" method="POST">
+                    <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
+                    <input class="w-100 btn btn-lg btn-outline-success my-1" type="submit" value="Add To Owned List">
+                </form>
+            </div>
+            <div class="col">
+                <form action="/users/<%= currentUser._id %>/wantToPlay?_method=PUT" method="POST">
+                    <input type="text" name="gameId" id="gameID" value="<%= currentGame.id %>" hidden>
+                    <input class="w-100 btn btn-lg btn-outline-success my-1" type="submit" value="Add To Wish List">
+                </form>
+            </div>
+        </div>
+    </div>
 <% } %>

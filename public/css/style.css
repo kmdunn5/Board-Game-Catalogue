@@ -14,11 +14,26 @@ nav {
 
 .form-signin {
     width: 100%;
-    max-width: 350px;
+    max-width: 330px;
     padding: 15px;
     margin: auto;
 }
 
 li {
     text-align: justify;
+}
+
+.nav-form {
+    margin-right: 10px;
+    display: block;
+    background-clip: border-box;
+
+}
+
+img {
+    width: 50%
+}
+
+.user-btns {
+    width: 400px;
 }

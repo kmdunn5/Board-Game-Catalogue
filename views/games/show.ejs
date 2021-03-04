@@ -9,17 +9,28 @@
     <h1><%= game.name %></h1>
     <img src="<%= game.image %>" alt="<%= game.name %>">
     <%- include ('../partials/userButtons.ejs', {currentGame: game}) %>
-    <h4><%= game.year %></h4>
-    <h3>Average Rating: <%= game.rating %></h3>
-    <h3>Complexity Rating: <%= game.complexity %></h3>
-    <h3>Player Count: <%= game.playerCount %></h3>
+    <h5><%= game.year %></h5>
+    <h4>Average Rating: 
+        <% if (game.complexity) { %>
+            <%= game.complexity %></h4>
+        <% } else { %>
+            N/A</h4>
+        <% } %>
+    </h4>
+    <h4>Complexity Rating: 
+        <% if (game.complexity) { %>
+            <%= game.complexity %></h4>
+        <% } else { %>
+            N/A</h4>
+        <% } %>
+    <h5>Player Count: <%= game.playerCount %></h5>
     <p id="description"><%= game.description %></p>
     <p id="creater"><small>Made By <%= game.designer %> & <%= game.publisher %></small></p>
     <% if (currentUser) { %>
-    <a href="/games/<%= game.id %>/edit"><button>Edit</button></a>
-    <form action="/games/<%= game.id %>?_method=DELETE" method="POST">
-        <input type="submit" name="delete" id="delete" value="DELETE">
-    </form>
+        <a href="/games/<%= game.id %>/edit"><button>Edit</button></a>
+        <form action="/games/<%= game.id %>?_method=DELETE" method="POST">
+            <input type="submit" name="delete" id="delete" value="DELETE">
+        </form>
     <% } %>
     
 </body>
