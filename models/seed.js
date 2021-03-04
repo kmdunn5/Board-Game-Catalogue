@@ -47,8 +47,18 @@ const seededGames = [
         publisher: 'R&R Games, Inc.',
         playerCount: '2-5',
         rating: 7.1,
-        complexity: '1.70',
+        complexity: 1.70,
         image: 'https://cf.geekdo-images.com/JDVksMwfcqoem1k_xtZrOA__itemrep/img/-8TE91boynDg5reWQGyIkc7Wx6I=/fit-in/246x300/filters:strip_icc()/pic2007286.jpg'
+    }, {
+        name: 'Catan',
+        year: 1995,
+        description: 'Collect and trade resources to build up the island of Catan in this modern classic.',
+        designer: 'Klaus Teuber',
+        publisher: 'KOSMOS',
+        playerCount: '3-4',
+        rating: 7.2,
+        complexity: 2.23,
+        image: 'https://cf.geekdo-images.com/W3Bsga_uLP9kO91gZ7H8yw__itemrep/img/IzYEUm_gWFuRFOL8gQYqGm5gU6A=/fit-in/246x300/filters:strip_icc()/pic2419375.jpg'
     }
 ]
 
