@@ -10,29 +10,33 @@
         <% if (playedGames.length === 0 && ownedGames.length === 0 && wantedGames.length === 0) { %>
             <h3>Sorry, you have not added a game to your lists yet. Go <a href="/games">here</a> to find and add games!</h3>
         <% } else { %>
-            <div class="container col">
-                <h3>Games You've Played</h3>
-                <ul>
-                    <% for (let i = 0; i < playedGames.length; i++) { %>
-                        <li><a href="/games/<%= playedGames[i].id %>"><%= playedGames[i].name %></a></li>
-                    <% } %>
-                </ul>
-            </div>
-            <div class="container col">
-                <h3>Games You Own</h3>
-                <ul>
-                    <% for (let i = 0; i < ownedGames.length; i++) { %>
-                        <li><a href="/games/<%= ownedGames[i].id %>"><%= ownedGames[i].name %></a></li>
-                    <% } %>
-                </ul>
-            </div>
-            <div class="container col">
-                <h3>Games You Want To Play</h3>
-                <ul>
-                    <% for (let i = 0; i < wantedGames.length; i++) { %>
-                        <li><a href="/games/<%= wantedGames[i].id %>"><%= wantedGames[i].name %></a></li>
-                    <% } %>
-                </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h3>Games You've Played</h3>
+                        <ul>
+                            <% for (let i = 0; i < playedGames.length; i++) { %>
+                                <li><a href="/games/<%= playedGames[i].id %>"><%= playedGames[i].name %></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Games You Own</h3>
+                        <ul>
+                            <% for (let i = 0; i < ownedGames.length; i++) { %>
+                                <li><a href="/games/<%= ownedGames[i].id %>"><%= ownedGames[i].name %></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Games You Want To Play</h3>
+                        <ul>
+                            <% for (let i = 0; i < wantedGames.length; i++) { %>
+                                <li><a href="/games/<%= wantedGames[i].id %>"><%= wantedGames[i].name %></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
             </div>
         <% } %>
     </h3>

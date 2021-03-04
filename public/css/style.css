@@ -1,11 +1,24 @@
 body {
-    background-color: paleturquoise;
+    text-align: center;
 }
 
 nav {
     background-color: palegoldenrod;
 }
 
-div {
+.col-sm {
     background-color: papayawhip;
+    margin: 10px;
+    border-radius: 4px;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+}
+
+li {
+    text-align: justify;
 }
