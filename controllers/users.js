@@ -31,14 +31,25 @@ USER.get('/:id', isAuthenticated, (req, res) => {
     try {
         User.findById(req.params.id, (err, user) => {
 
-            UserGame.find({userId: user.id}, (err, relationships) => {
-                let relatedGames = relationships.map(i => i.gameId);
-                Game.find({ _id: {$in: relatedGames}}, (err, foundGames) => {
-                    res.render('users/show.ejs', {
-                        user: user,
-                        currentUser: req.session.currentUser,
-                        relationships: relationships,
-                        relatedGames: foundGames
+            UserGame.find({userId: user.id, played: true}, (err, playRelationship) => {
+                let playedArr = playRelationship.map(i => i.gameId);
+                Game.find({ _id: {$in: playedArr}}, (err, playedGames) => {
+                    UserGame.find({userId: user.id, owned: true}, (err, ownedRelationship) => {
+                        let ownedArr = ownedRelationship.map(i => i.gameId);
+                        Game.find({ _id: {$in: ownedArr}}, (err, ownedGames) => {
+                            UserGame.find({userId: user.id, wantToPlay: true}, (err, wantRelationship) => {
+                                let wantedArr = wantRelationship.map(i => i.gameId);
+                                Game.find({ _id: {$in: wantedArr}}, (err, wantedGames) => {
+                                    res.render('users/show.ejs', {
+                                        user: user,
+                                        currentUser: req.session.currentUser,
+                                        playedGames: playedGames,
+                                        ownedGames: ownedGames,
+                                        wantedGames: wantedGames
+                                    })
+                                })
+                            })
+                        })
                     })
                 })
             })
@@ -92,3 +103,5 @@ USER.put('/:id/wantToPlay', (req, res) => {
 })
 
 module.exports = USER
+
+
