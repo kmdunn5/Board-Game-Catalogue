@@ -38,21 +38,6 @@ GAMES.get('/new', isAuthenticated, (req, res) => {
 
 // Post //
 GAMES.post('/', (req, res) => {
-    if (req.body.played === 'on') {
-        req.body.played = true;
-    } else {
-        req.body.played = false;
-    }
-    if (req.body.wantToPlay === 'on') {
-        req.body.wantToPlay = true;
-    } else {
-        req.body.wantToPlay = false;
-    }
-    if (req.body.owned === 'on') {
-        req.body.owned = true
-    } else {
-        req.body.owned = false
-    }
     Game.create(req.body, (err, game) => {
         res.redirect('/games')
     })
@@ -80,21 +65,6 @@ GAMES.get('/:id/edit', isAuthenticated, (req, res) => {
 
 // Update //
 GAMES.put('/:id', (req, res) => {
-    if (req.body.played === 'on') {
-        req.body.played = true;
-    } else {
-        req.body.played = false;
-    }
-    if (req.body.wantToPlay === 'on') {
-        req.body.wantToPlay = true;
-    } else {
-        req.body.wantToPlay = false;
-    }
-    if (req.body.owned === 'on') {
-        req.body.owned = true
-    } else {
-        req.body.owned = false
-    }
     Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, game) => {
         res.redirect(`/games/${req.params.id}`)
     })

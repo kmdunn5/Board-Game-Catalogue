@@ -29,20 +29,7 @@
         <label for="complexity">Complexity: </label>
         <input type="text" name="complexity" id="complexity" value="<%= game.complexity %>">
         <label for="played">Have You Played It?</label>
-        <input type="checkbox" name="played" id="played" 
-        <% if (game.played === true) { %>
-            checked
-        <% } %>>
-        <label for="wantToPlay">Do You Want To Play It?</label>
-        <input type="checkbox" name="wantToPlay" id="wantToPlay"
-        <% if (game.wantToPlay === true) { %>
-            checked
-        <% } %>>
-        <label for="owned">Do You Own It?</label>
-        <input type="checkbox" name="owned" id="owned"
-        <% if (game.owned === true) { %>
-            checked
-        <% } %>>
+        <input type="checkbox" name="played" id="played">
         <label for="image">Image URL</label>
         <input type="url" name="image" id="image" value="<%= game.image %>">
         <input type="submit" name="submit" id="submit" value="Update">

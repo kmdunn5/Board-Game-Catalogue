@@ -10,9 +10,6 @@ const gameSchema = new Schema({
     playerCount: String,
     rating: {type: Number, max: 10, min: 0},
     complexity: {type: Number, max: 5, min: 0},
-    played: Boolean,
-    wantToPlay: Boolean,
-    owned: Boolean,
     image: String
 });
 

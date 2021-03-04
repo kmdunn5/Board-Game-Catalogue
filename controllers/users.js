@@ -33,8 +33,7 @@ USER.get('/:id', isAuthenticated, (req, res) => {
 
             UserGame.find({userId: user.id}, (err, relationships) => {
                 let relatedGames = relationships.map(i => i.gameId);
-                console.log(relatedGames)
-                Game.find( { _id: {$in: relatedGames}}, (err, foundGames) => {
+                Game.find({ _id: {$in: relatedGames}}, (err, foundGames) => {
                     res.render('users/show.ejs', {
                         user: user,
                         currentUser: req.session.currentUser,
@@ -50,10 +49,19 @@ USER.get('/:id', isAuthenticated, (req, res) => {
     }
 })
 
-USER.put('/:id', (req, res) => {
-    UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, played: true}, (err, createdGame) => {
-        res.redirect('/users/' + req.session.currentUser._id);
+USER.put('/:id/played', (req, res) => {
+    UserGame.findOne({ userId: req.session.currentUser._id, gameId: req.body.gameId}, (err, foundRelationship) => {
+        if (foundRelationship) {
+            UserGame.findByIdAndUpdate(foundRelationship.id, {$set: {played: true}}, {new: true}, (err, playedGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        } else {
+            UserGame.create({ userId: req.session.currentUser._id, gameId: req.body.gameId, played: true}, (err, createdGame) => {
+                res.redirect('/users/' + req.session.currentUser._id);
+            })
+        }
     })
 })
+
 
 module.exports = USER
