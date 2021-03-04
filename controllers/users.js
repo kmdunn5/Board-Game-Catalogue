@@ -28,27 +28,26 @@ USER.post('/', (req, res) => {
 })
 
 USER.get('/:id', isAuthenticated, (req, res) => {
-    User.findById(req.params.id, (err, user) => {
+    try {
+        User.findById(req.params.id, (err, user) => {
 
-        UserGame.find({userId: user.id}, (err, relationships) => {
-            let relatedGames = [];
-            for (let i in relationships) {
-                console.log('relationship:' + relationships[i].gameId)
-                Game.find( { _id: relationships[i].gameId}, (err, foundGame) => {
-                    console.log(foundGame)
-                    console.log('next')
-                    relatedGames.push(foundGame);
+            UserGame.find({userId: user.id}, (err, relationships) => {
+                let relatedGames = relationships.map(i => i.gameId);
+                console.log(relatedGames)
+                Game.find( { _id: {$in: relatedGames}}, (err, foundGames) => {
+                    res.render('users/show.ejs', {
+                        user: user,
+                        currentUser: req.session.currentUser,
+                        relationships: relationships,
+                        relatedGames: foundGames
+                    })
                 })
-            }
-            console.log('end')
-            res.render('users/show.ejs', {
-                user: user,
-                currentUser: req.session.currentUser,
-                relationships: relationships
             })
-        })
 
-    })
+        })
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 USER.put('/:id', (req, res) => {

@@ -5,8 +5,17 @@ const GAMES = express.Router();
 const Game = require('../models/boardgame.js');
 const seededGames = require('../models/seed.js');
 
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+      res.redirect('/sessions/new')
+    }
+  }
+
+
 // Seed //
-GAMES.get('/seed', (req, res) => {
+GAMES.get('/seed', isAuthenticated, (req, res) => {
     Game.create(seededGames, (err, data) => {
         res.redirect('/games');
     });
@@ -23,7 +32,7 @@ GAMES.get('/', (req, res) => {
 });
 
 // New //
-GAMES.get('/new', (req, res) => {
+GAMES.get('/new', isAuthenticated, (req, res) => {
     res.render('games/new.ejs', {currentUser: req.session.currentUser});
 });
 
@@ -60,7 +69,7 @@ GAMES.get('/:id', (req, res) => {
 });
 
 // Edit //
-GAMES.get('/:id/edit', (req, res) => {
+GAMES.get('/:id/edit', isAuthenticated, (req, res) => {
     Game.findById(req.params.id, (err, game) => {
         res.render('games/edit.ejs', {
             game: game,
@@ -92,7 +101,7 @@ GAMES.put('/:id', (req, res) => {
 });
 
 // Delete //
-GAMES.delete('/:id', (req, res) => {
+GAMES.delete('/:id', isAuthenticated, (req, res) => {
     Game.findByIdAndDelete(req.params.id, (err, game) => {
         res.redirect('/games');
     })

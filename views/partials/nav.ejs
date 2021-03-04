@@ -1,7 +1,7 @@
 <ul>
     <li><a href="/games">Games List</a></li>
-    <li><a href="/games/new">Add a Game</a></li>
     <% if (currentUser) { %>
+        <li><a href="/games/new">Add a Game</a></li>
         <li><a href="/users/<%= currentUser._id %>">Home</a></li>
         <li>
             <form action="/sessions?_method=DELETE" method="POST">
