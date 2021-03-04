@@ -6,7 +6,7 @@
 </head>
 <body>
     <%- include ('../partials/nav.ejs') %>
-    <h1>Index Page</h1>
+    <h1>Games List</h1>
     <div class="list-group w-75 m-auto">
         <% for (let i = 0; i < games.length; i++) { %>
             <a class="list-group-item list-group-item-action" href="/games/<%= games[i].id %>"><%= games[i].name %></a>
