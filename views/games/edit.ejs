@@ -5,9 +5,7 @@
     <title>Fix Your Mistake!</title>
 </head>
 <body>
-    <nav>
-        <%- include ('../partials/nav.ejs') %>
-    </nav>
+    <%- include ('../partials/nav.ejs') %>
     <h1>Edit Page</h1>
     <form action="/games/<%= game.id %>?_method=PUT" method="POST">
         <label for="name">Name: </label>

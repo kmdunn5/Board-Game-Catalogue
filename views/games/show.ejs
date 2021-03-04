@@ -5,9 +5,7 @@
     <title>Show</title>
 </head>
 <body>
-    <nav>
-        <%- include ('../partials/nav.ejs') %>
-    </nav>
+    <%- include ('../partials/nav.ejs') %>
     <h1><%= game.name %></h1>
     <img src="<%= game.image %>" alt="<%= game.name %>">
     <%- include ('../partials/userButtons.ejs', {currentGame: game}) %>

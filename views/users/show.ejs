@@ -5,14 +5,12 @@
     <title><%= currentUser.username %></title>
 </head>
 <body>
-    <nav>
-        <%- include ('../partials/nav.ejs') %>
-    </nav>
+    <%- include ('../partials/nav.ejs') %>
     <h1>Welcome <%= currentUser.username %>!</h1>
         <% if (playedGames.length === 0 && ownedGames.length === 0 && wantedGames.length === 0) { %>
             <h3>Sorry, you have not added a game to your lists yet. Go <a href="/games">here</a> to find and add games!</h3>
         <% } else { %>
-            <div>
+            <div class="container col">
                 <h3>Games You've Played</h3>
                 <ul>
                     <% for (let i = 0; i < playedGames.length; i++) { %>
@@ -20,7 +18,7 @@
                     <% } %>
                 </ul>
             </div>
-            <div>
+            <div class="container col">
                 <h3>Games You Own</h3>
                 <ul>
                     <% for (let i = 0; i < ownedGames.length; i++) { %>
@@ -28,7 +26,7 @@
                     <% } %>
                 </ul>
             </div>
-            <div>
+            <div class="container col">
                 <h3>Games You Want To Play</h3>
                 <ul>
                     <% for (let i = 0; i < wantedGames.length; i++) { %>
